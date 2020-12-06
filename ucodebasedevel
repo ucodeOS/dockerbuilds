@@ -1,0 +1,13 @@
+FROM <NAME>
+
+ADD kiss.sh /etc/profile.d/kiss.sh
+
+WORKDIR /var/db/kiss
+
+RUN git clone --recursive https://github.com/gkisslinux/grepo.git
+RUN git clone https://github.com/gkisslinux/gcommunity.git
+RUN git clone https://github.com/kisslinux/community
+
+WORKDIR /
+
+CMD ["/usr/bin/sh", "-l"]
